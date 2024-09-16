@@ -107,3 +107,13 @@ public/data/grid_tif/SPI/SPI12_yearly_0.250deg_1950_2016_Laos.tif
 public/data/grid_tif/SPI/SPI12_yearly_0.250deg_1950_2016_Myanmar.tif
 public/data/grid_tif/SPI/SPI12_yearly_0.250deg_1950_2016_Thailand.tif
 public/data/grid_tif/SPI/SPI12_yearly_0.250deg_1950_2016_Vietnam.tif
+public/data/SPI1_monthly_country_1950_2016.geojson
+public/data/SPI1_yearly_country_1950_2016.geojson
+public/data/SPI1_yearly_country_1950_2016.json
+public/data/SPI3_monthly_country_1950_2016.geojson
+public/data/SPI3_yearly_country_1950_2016.geojson
+public/data/SPI6_Monthly_country_1950_2016.geojson
+public/data/SPI6_yearly_country_1950_2016.geojson
+public/data/SPI12_Monthly_country_1950_2016.geojson
+public/data/SPI12_yearly_country_1950_2016.geojson
+public/data/SPI12_yearly_Vietnam_prov_1950_2016.geojson
