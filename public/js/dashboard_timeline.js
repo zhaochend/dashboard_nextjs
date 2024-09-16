@@ -75,7 +75,7 @@ jQuery(document).ready(function ($) {
                     );
                     // update data layer
                     changeVariable();
-                    mapYearlyChanage();
+                    mapYearlyChange();
                     // updateVisibleContent($(this), timelineComponents["eventsContent"]);
                 }
             );
@@ -463,14 +463,14 @@ jQuery(document).ready(function ($) {
 
 // var currData = SPI1_Yearly_Country;
 
-function mapYearlyChanage() {
+function mapYearlyChange() {
     // initialize variables
     const yearlist_ul = document.getElementById("year-list");
     var aSelected = yearlist_ul.querySelector(".selected");
-    var yearSelected = "y" + aSelected.innerHTML;
+    var yearSelected = "Y" + aSelected.innerHTML;
 
     var selectedVarName = map_titles.querySelector("h3").innerHTML;
-
+    
     if (map) {
         // if (geojson) {
         //   map.removeLayer(geojson); // 移除 geojson 图层
@@ -572,6 +572,20 @@ function mapYearlyChanage() {
                 : d > 0
                 ? "#730000"
                 : "#fff";
+        } else if (selectedVarName == "Yield") {
+            return d < 0
+                ? "#fff"
+                : d > 500
+                ? "#FFFF00 "
+                : d > 100
+                ? "#FCD37F"
+                : d > 50
+                ? "#FFAA00"
+                : d > 10
+                ? "#E60000"
+                : d > 0
+                ? "#730000"
+                : "#fff";
         } else {
             return d > -0.5
                 ? "#fff"
@@ -585,6 +599,8 @@ function mapYearlyChanage() {
                 ? "#E60000"
                 : d < -2
                 ? "#730000"
+                : d < -1000
+                ? "#fff"
                 : "#fff";
         }
     }
@@ -616,16 +632,139 @@ function mapYearlyChanage() {
     //     : "#fff";
     // }
 
-    function style(feature) {
-        return {
-            fillColor: getColor(feature.properties[yearSelected]),
-            weight: 2,
-            opacity: 1,
-            color: "#666",
-            // color: "white",
-            dashArray: "3",
-            fillOpacity: 0.7
+    function filterYearDataForFeatures(features, year) {
+        const yearKey = `Y${year}`; // Construct the key for the given year, e.g., "Y1961"
+        
+        return features.map((feature) => {
+            const value = feature.properties[yearKey]; // Extract the value for the specific year
+            return {
+                Area: feature.properties.Area, // Extract the area name
+                Year: year, // Add the selected year
+                Yield: value, // Add the value for the selected year
+                Geometry: feature.geometry, // Include the geometry data if needed
+                Properties: feature.properties // Optionally include other properties
+            };
+        }).filter(feature => feature.Value !== undefined); // Filter out features without valid data for the year
+    }
+    // Function to filter data by year
+    let mapRaster;
+    var bandIndex;
+    let propertyVar;
+    function filterByYear(currData, targetYear) {
+        // Filter features by the target year
+        if (typeof currData.type === 'string'){
+            mapRaster = false;
+            // for SPI
+            if (typeof currData.name === 'undefined'){
+                propertyVar='SPI';
+                result = currData.features.filter(feature => feature.properties.year === targetYear);
+            } else {// for yield
+                propertyVar='Yield'
+                result = filterYearDataForFeatures(currData.features, targetYear);
+                // currData.features.filter(feature => feature.properties[('Y'+targetYear.toString())]);
+
+            }
+
+            // for province SPI
+            if (result.length === 0){
+                return currData.features.filter(feature => feature.properties['y'+targetYear.toString()]);
+            } else {
+                return result
+            }
+            
+        } else if (typeof currData.type === 'undefined') {
+            console.log('raster',currData)
+            mapRaster = true;
+            bandIndex = Number(targetYear - 1950); // Assuming the year corresponds to the band index
+            // console.log('bandindex',bandIndex >=0)
+            // Ensure the bandIndex is within range
+            if (bandIndex >= 0 && bandIndex < currData.values.length) {
+                return currData.values[bandIndex]; // Return the specific band for the selected year
+            } else {
+                console.error(`Band for year ${targetYear} is out of range.`);
+                return null;
+            }
+        }
+        
+    }
+
+    
+
+    // Filter the data for the year
+    const filteredData = filterByYear(currData, Number(aSelected.innerHTML));
+    // Create a new FeatureCollection with the filtered features
+    console.log('type of', filteredData)
+    var filteredFeatureCollection;
+    // for SPI, soil moisture and yield
+    if (!mapRaster && propertyVar === 'SPI'){
+        filteredFeatureCollection = {
+            type: 'FeatureCollection',
+            features: filteredData
         };
+        // const spiValues = filteredData
+        //             .map(item => item.properties[propertyVar]) // Adjust 'value' to the actual property name
+        //             .filter(value => typeof value === 'number'); // Ensure the value is a number
+
+        //         if (spiValues.length === 0) {
+        //             console.error("No valid numerical values found");
+        //             return;
+        //         }
+
+        //         // Calculate the mean
+        //         const sum = spiValues.reduce((acc, val) => acc + val, 0);
+        //         const mean = sum / spiValues.length;
+        // window.meanSPI = mean.toFixed(3)
+    } else if (mapRaster){
+        // If it's raster data, keep it as a GeoRaster object
+        filteredFeatureCollection = {
+            ...currData, // Keep all the GeoRaster metadata
+            values: [filteredData] // Replace values with the specific band filtered by year
+        };
+        const flattenedValues = filteredData.flatMap(array => Array.from(array));
+        const validValues = flattenedValues.filter(value => value !== -999000000);
+        if (validValues.length === 0) {
+            console.error("No valid values to calculate mean");
+        } else {
+            const sum = validValues.reduce((acc, value) => acc + value, 0);
+            const mean = sum / validValues.length;
+        
+            // Format the mean to 2 decimal places
+            window.meanSPI = mean.toFixed(3)
+        }
+        console.log('GeoRaster values:', filteredFeatureCollection.values);
+        console.log('GeoRaster numberOfRasters:', filteredFeatureCollection.numberOfRasters);
+    } else if (!mapRaster && propertyVar == 'Yield'){
+        filteredFeatureCollection = filteredData;
+    }
+    
+    
+    function style(feature) {
+        // console.log('feature filtered',feature.properties.SPI1)
+        // console.log('color',getColor(feature.properties['y1967']))
+        if (feature.properties[propertyVar]){
+            return {
+                fillColor: getColor(feature.properties[propertyVar]),
+                weight: 2,
+                opacity: 1,
+                color: "#666",
+                // color: "white",
+                dashArray: "3",
+                fillOpacity: 0.7
+            };
+        } else {
+            propertyVar = 'SMPct';
+            // soil moisture
+            return {
+                fillColor: getColor(feature.properties['y'+aSelected.innerHTML.toString()]),
+                weight: 2,
+                opacity: 1,
+                color: "#666",
+                // color: "white",
+                dashArray: "3",
+                fillOpacity: 0.7
+            };
+        }
+        
     }
 
     function highlightFeature(e) {
@@ -669,11 +808,34 @@ function mapYearlyChanage() {
         });
     }
 
+    
     // 添加geometry layer
-    geojson = L.geoJson(currData, {
-        style: style,
-        onEachFeature: onEachFeature
-    }).addTo(map);
+    console.log(mapRaster)
+    console.log(filteredFeatureCollection)
+    if (!mapRaster) {
+        geojson = L.geoJson(filteredFeatureCollection, {
+            style: style,
+            onEachFeature: onEachFeature
+        }).addTo(map);
+    } else {
+        console.log('filter collection',filteredFeatureCollection)
+        const layer = new GeoRasterLayer({
+            georaster: filteredFeatureCollection,
+            opacity: 0.6,
+            pixelValuesToColorFn: values => {
+              const pixelValue = values[0];
+              if (pixelValue === 0 || isNaN(pixelValue)) {
+                return null;
+              }
+              return getColor(pixelValue);
+            },
+            resolution: 64
+          });
+          
+        layer.addTo(map);
+        map.fitBounds(layer.getBounds());
+    }
+    
 
     // geojson = L.geoJson(SPI1_yearly_prov_tha, {
     //   style: style,
@@ -688,7 +850,7 @@ function mapYearlyChanage() {
         this.update();
         return this._div;
     };
-
+    
     function giveVarFullName(shortName) {
         console.log(shortName);
         if (shortName == "SPI1") {
@@ -696,15 +858,23 @@ function mapYearlyChanage() {
         }
         if (shortName == "SPI3") {
             return "SPI (3 month)";
+            
         }
         if (shortName == "SPI6") {
             return "SPI (6 month)";
+            
         }
         if (shortName == "SPI12") {
             return "SPI (12 month)";
+            
         }
         if (shortName == "SMPct") {
             return "Soil Moisture Percentile";
+            
+        }
+        if (shortName == "Yield") {
+            return "Rice Yield";
+            
         }
     }
 
@@ -717,25 +887,41 @@ function mapYearlyChanage() {
             return valueToCheck.toFixed(2);
         }
     }
-
-    info.update = function (props) {
-        this._div.innerHTML =
-            "<h4>" +
-            map_titles.querySelector("p").innerHTML +
-            " " +
-            map_titles.querySelector("h3").innerHTML +
-            "<h4>" +
-            (props
-                ? "<b>" +
-                  "Region: " +
-                  props.name +
-                  "</b><br />" +
-                  "Value: " +
-                  checkNullThenRound(props[yearSelected])
-                : // props[yearSelected]
-                  "Hover over a state");
-    };
-
+    if (propertyVar == 'SPI'){
+        info.update = function (props) {
+            this._div.innerHTML =
+                "<h4>" +
+                // map_titles.querySelector("p").innerHTML +
+                " " +
+                map_titles.querySelector("h3").innerHTML +
+                "<h4>" +
+                (props
+                    ? "<b>" +
+                      props.name +
+                      "</b><br />" +
+                      "Value: " +
+                      checkNullThenRound(props[propertyVar])
+                    : // props[yearSelected]
+                      "Hover over a state");
+        };
+    } else {
+        info.update = function (props) {
+            this._div.innerHTML =
+                "<h4>" +
+                // map_titles.querySelector("p").innerHTML +
+                " " +
+                map_titles.querySelector("h3").innerHTML +
+                "<h4>" +
+                (props
+                    ? "<b>" +
+                      props.name +
+                      "</b><br />" +
+                      "Value: " +
+                      checkNullThenRound(props['y'+aSelected.innerHTML.toString()])
+                    : // props[yearSelected]
+                      "Hover over a state");
+        };
+    }
     info.addTo(map);
 
     // 添加自定义图例控件

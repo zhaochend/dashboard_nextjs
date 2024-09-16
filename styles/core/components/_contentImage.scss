@@ -1,0 +1,23 @@
+/**
+
+=========================================================
+** Custom Header styling
+=========================================================
+
+**/
+
+@layer components {
+    .image-circle {
+        width: 150px; /* Adjust size as needed */
+        height: 150px; /* Make it a circle */
+        border-radius: 50%; /* Create a circle */
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
+        border: 2px solid #ddd; /* Optional: Add a border */
+        object-fit: cover; /* Ensure the image fits well */
+        transition: transform 0.3s ease; /* Smooth transition */
+    }
+    
+    .image-circle:hover {
+        transform: scale(1.05); /* Slight zoom on hover */
+    }
+}

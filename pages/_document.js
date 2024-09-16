@@ -10,7 +10,7 @@ export default function Document() {
                     href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
                     rel="stylesheet"
                 />
-                {/* 引入其他外部 CSS 文件 */}
+                引入其他外部 CSS 文件
                 <link
                     rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -37,13 +37,15 @@ export default function Document() {
                     href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
                     rel="stylesheet"
                 />
-
-                <Script src="https://registry.npmmirror.com/jquery/3.7.1/files/dist/jquery.min.js"></Script>
             </Head>
-            {/* <Head /> */}
             <body>
                 <Main />
                 <NextScript />
+                {/* Load jQuery before any other scripts */}
+                <Script
+                    src="https://registry.npmmirror.com/jquery/3.7.1/files/dist/jquery.min.js"
+                    strategy="beforeInteractive"
+                />
             </body>
         </Html>
     );

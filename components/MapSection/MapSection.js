@@ -7,7 +7,7 @@ export const MapSection = () => {
                 <div class="first_row_container" id="first_row_container">
                     <div id="map_titles" class="map_titles">
                         <h3 class="map_main_title">SPI (1 month)</h3>
-                        <p class="map_sub_title">General</p>
+                        <p class="map_sub_title">South and Southeast Asia</p>
                     </div>
                     <div id="selector">
                         <div class="select_data">
@@ -23,6 +23,7 @@ export const MapSection = () => {
                                 <div class="opt_1 option_03">SPI6</div>
                                 <div class="opt_1 option_04">SPI12</div>
                                 <div class="opt_1 option_05">SMPct</div>
+                                <div class="opt_1 option_06">Yield</div>
                             </div>
                         </div>
                         <div class="select_region">
@@ -34,7 +35,7 @@ export const MapSection = () => {
                             </div>
                             <div class="options_list options_list_region">
                                 <div class="opt_2 option_all selected">
-                                    General
+                                    South and Southeast Asia
                                 </div>
                                 <div class="opt_2 option_cam">Cambodia</div>
                                 {/* <!-- <div class="opt_2 option_ind">India</div> --> */}
@@ -81,7 +82,7 @@ export const MapSection = () => {
                                         id="national"
                                         defaultChecked
                                     />
-                                    <span>National</span>
+                                    <span>Country</span>
                                 </label>
                                 <label for="provincial">
                                     <input
@@ -90,7 +91,16 @@ export const MapSection = () => {
                                         class="radio_space_res"
                                         id="provincial"
                                     />
-                                    <span>Provincial</span>
+                                    <span>Province/State</span>
+                                </label>
+                                <label for="grid">
+                                    <input
+                                        type="radio"
+                                        name="radio_space_res"
+                                        class="radio_space_res"
+                                        id="grid"
+                                    />
+                                    <span>Grid</span>
                                 </label>
                             </div>
                         </div>

@@ -17,12 +17,20 @@ import {
     Card
 } from "@components/Card";
 
+import dynamic from 'next/dynamic';
+import 'leaflet/dist/leaflet.css';
+
+const MapComponent = dynamic(() => import('../components/Map/Map'), {
+  ssr: false,
+});
+
 export default function Home() {
     return (
         <Layout className="">
             <SEO
-                title="NutriTrack - A landing page template 🚀"
-                description="Discover NutriTrack, the effortless way to plan your meals with the power of Notion. Streamline your nutrition journey and achieve your health goals with ease."
+                title="RICE-MAP: Rice Information & Climate Evaluation - Monitoring And Prediction 🚀"
+                description="Explore RICE-MAP, your go-to tool for predicting and analyzing rice production trends in major rice-producing countries. 
+                Stay informed with the latest data and insights to help you make informed decisions in agriculture and trade."
             />
             <div className="main-wrapper bg-[#F3F5F8] relative z-10 pb-20 pt-20 ">
                 {/* { Page Banner } */}
@@ -33,24 +41,23 @@ export default function Home() {
                     <MotionBTTContainer
                         transition={{ delay: 0.2, duration: 0.5 }}
                     >
-                        <SectionContainer id="features" className="features">
+                        <SectionContainer id="countries" className="countries">
                             <BadgeGroup alignment="center">
-                                <BadgeMessage>Features</BadgeMessage>
+                                <BadgeMessage>Countries</BadgeMessage>
                             </BadgeGroup>
                             <PageTitle
                                 className="text-center mx-auto"
                                 type="default"
                             >
-                                Simplify Your Nutrition Journey with NutriTrack
+                                RICE-MAP in Key Countries
                             </PageTitle>
                             <Content className="text-center" alignment="center">
                                 <p>
-                                    Hey there! Welcome to NutriTrack, the
-                                    ultimate nutrition meal planner powered by
-                                    Notion. We&apos;ve got some awesome features
-                                    lined up to make your nutrition journey a
-                                    piece of cake (pun intended). Check them
-                                    out:
+                                Explore detailed forecasts of rice yield in key Southeast Asian countries. 
+                                Our advanced models predict rice production trends, helping you understand 
+                                the impact of climate patterns, extreme weather events, and agricultural 
+                                practices on future yields. Stay informed and make data-driven decisions 
+                                with our comprehensive insights into the rice-growing regions around Singapore.
                                 </p>
                             </Content>
                             <ContentImage />
@@ -62,32 +69,33 @@ export default function Home() {
                     >
                         <SectionContainer className="feature-tabs">
                             <BadgeGroup alignment="center">
-                                <BadgeMessage>More Features</BadgeMessage>
-                                <BadgeIcon icon="twemoji:waving-hand" />
+                                <BadgeMessage>Weather</BadgeMessage>
+                                <BadgeIcon icon="ph:cloud-rain" />
                             </BadgeGroup>
                             <PageTitle
                                 className="text-center mx-auto"
                                 type="default"
                             >
-                                Master Your Meal Planning and Nutrition Journey
+                                Navigate and Understand Climate Patterns 
                             </PageTitle>
                             <Content className="text-center" alignment="center">
                                 <p>
-                                    Our comprehensive Notion template designed
-                                    to empower you on your meal planning and
-                                    nutrition journey. With our user-friendly
-                                    features, customizable layouts, and seamless
-                                    recipe integration, taking control of your
-                                    meals has never been easier.
+                                Our dashboard empowers you to explore and comprehend the intricate weather patterns that 
+                                influence crop yields. By visualizing key weather variables, you can gain insights into 
+                                the conditions that impact rice production. Here's how each variable helps you understand 
+                                the broader weather patterns:
                                 </p>
                             </Content>
                             <CardGroup className="grid scroll-m-24 gap-8 grid-cols-1 max-w-4xl mx-auto mt-24 md:grid-cols-2">
                                 <Card className="col-span-1 text-primary-900">
                                     <CardBody className="w-full bg-white-600/20 p-12">
-                                        <CardImage
-                                            src="/features4.png"
-                                            alt="Customizable Layouts image used."
-                                        />
+                                        <div className="relative w-full h-60">
+                                            <CardImage
+                                                src="/layout.png"
+                                                alt="Customizable Layouts image used."
+                                                className="object-cover absolute inset-0 w-full h-full"
+                                            />
+                                        </div>
                                         <CardHeader className="!text-black !text-2xl !font-bold">
                                             Customizable Layouts
                                         </CardHeader>
@@ -105,44 +113,44 @@ export default function Home() {
                                 </Card>
                                 <Card className="col-span-1 text-primary-900">
                                     <CardBody className="w-full bg-white-600/20 p-12">
-                                        <CardImage
-                                            src="/features3.png"
-                                            alt="Progress Tracking image used."
-                                        />
+                                        <div className="relative w-full h-60">
+                                            <CardImage
+                                                src="/early_warning.png"
+                                                alt="Progress Tracking image used."
+                                                className="object-cover absolute inset-0 w-full h-full"
+                                            />
+                                        </div>
                                         <CardHeader className="!text-black !text-2xl !font-bold">
-                                            Progress Tracking
+                                            Early Warning
                                         </CardHeader>
                                         <p>
-                                            Celebrate your wins and stay
-                                            motivated on your nutrition journey.
-                                            NutriTrack allows you to monitor
-                                            your progress with weight,
-                                            measurements, and other key metrics.
-                                            Track your improvements over time
-                                            and see the positive impact of your
-                                            healthy choices.
+                                        Early warning systems for rice yield in Southeast Asia aim to anticipate
+                                         potential disruptions in rice production by leveraging a range of data 
+                                         and technologies. These systems are designed to provide timely alerts 
+                                         to stakeholders, helping them to take proactive measures to mitigate 
+                                         risks and ensure food security.
                                         </p>
                                     </CardBody>
                                 </Card>
                             </CardGroup>
                         </SectionContainer>
                     </MotionBTTContainer>
-                    {/* Testimonials */}
+                    {/* Reivews */}
                     <MotionBTTContainer
                         transition={{ delay: 0.2, duration: 0.5 }}
                     >
                         <SectionContainer
-                            id="testimonials"
+                            id="features"
                             className="benefits"
                         >
                             <BadgeGroup alignment="left">
-                                <BadgeMessage>Testimonials</BadgeMessage>
+                                <BadgeMessage>Features</BadgeMessage>
                                 <BadgeIcon icon="twemoji:waving-hand" />
                             </BadgeGroup>
                             <PageTitle className="" type="default">
-                                This is what our customers have to say about
-                                this template
+                                Dashboard
                             </PageTitle>
+                            <MapComponent />
                             <Columns />
                         </SectionContainer>
                     </MotionBTTContainer>
@@ -158,7 +166,7 @@ export default function Home() {
                                 className="text-center mx-auto"
                                 type="default"
                             >
-                                Got some burning questions about NutriTrack?{" "}
+                                Got some burning questions about RICE-MAP?{" "}
                                 <br></br>
                                 <br></br>No worries! We&apos;ve got the answers
                                 you need:
