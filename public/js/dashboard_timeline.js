@@ -500,11 +500,11 @@ function mapYearlyChange() {
     }
     map = L.map("chart_container").setView([18, 90], 5);
 
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
         maxZoom: 12,
         attribution:
-            '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      }).addTo(map);
 
     // // assume for a geojson object, get color for SMPct
     // function getColor(d) {

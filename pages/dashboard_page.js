@@ -80,6 +80,18 @@ export default function Home() {
                 src="/js/prov_yearly/SPI3_Yearly_thailand_1950_2016.js"
                 // strategy="afterInteractive"
             />
+            <Script
+                src="/js/prov_yearly/SPI3_Yearly_vietnam_1950_2016.js"
+                // strategy="afterInteractive"
+            />
+            <Script
+                src="/js/prov_yearly/SPI3_Yearly_laos_1950_2016.js"
+                // strategy="afterInteractive"
+            />
+            <Script
+                src="/js/prov_yearly/SPI3_Yearly_cambodia_1950_2016.js"
+                // strategy="afterInteractive"
+            />
 
             <Script
                 src="/js/dashboard_map_update.js"
@@ -141,9 +153,9 @@ export default function Home() {
                     <p className="mt-5 text-sm">Information last updated on {lastUpdated}</p>
                 </Card>
                 <Card className="w-[calc(22vw-10px)] min-w-[360px] mx-5 my-5 mt-0 p-5 bg-gray-100 flex flex-col justify-between border border-gray-400 rounded-2xl">
-                    <h3 className="mb-5">Yield</h3>
+                    <h3 className="mb-5">Yield (100 g/ha)</h3>
                     <span className="card_data block text-4xl font-bold my-8 bg-teal-500 text-white p-5 rounded-full cursor-pointer transition-shadow duration-300 hover:shadow-lg">
-                        4
+                        9540
                     </span>
                     <p className="mt-5 text-sm">Information last updated on {lastUpdated}</p>
                 </Card>

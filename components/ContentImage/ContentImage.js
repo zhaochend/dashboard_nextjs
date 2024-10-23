@@ -8,79 +8,81 @@ const ContentImageData = [
         id: uuid(),
         // title: "India",
         content: (
-            <table className="min-w-full divide-y divide-gray-200">
-                <caption className="text-lg font-semibold text-gray-800 text-center py-4">
-                        Annual Rice Planting Data for {`India`}
-                    </caption>
-                <thead className="bg-gray-50">
-                    <tr>
-                        <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
-                            Year
-                        </th>
-                        <th className="px-6 py-3 text-center text-sm font-medium text-gray-500 uppercase tracking-wider">
-                            Rice Planting Area (ha)
-                        </th>
-                    </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                    <tr>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            2015
-                        </td>
-                        <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
-                            123,000
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            2016
-                        </td>
-                        <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
-                            130,000
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            2017
-                        </td>
-                        <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
-                            125,000
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            2018
-                        </td>
-                        <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
-                            128,000
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            2019
-                        </td>
-                        <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
-                            135,000
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            2020
-                        </td>
-                        <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
-                            140,000
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            2021
-                        </td>
-                        <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
-                            145,000
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                <div>
+                    <table className="min-w-full divide-y divide-gray-200">
+                        <caption className="text-lg font-semibold text-gray-800 text-center py-4">
+                            Annual Rice Planting Area for {`India`}
+                        </caption>
+                        <thead className="bg-gray-50">
+                            <tr>
+                                <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
+                                    Year
+                                </th>
+                                <th className="px-6 py-3 text-center text-sm font-medium text-gray-500 uppercase tracking-wider">
+                                    Rice Planting Area (ha)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    2015
+                                </td>
+                                <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                    123,000
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    2016
+                                </td>
+                                <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                    130,000
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    2017
+                                </td>
+                                <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                    125,000
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    2018
+                                </td>
+                                <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                    128,000
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    2019
+                                </td>
+                                <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                    135,000
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    2020
+                                </td>
+                                <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                    140,000
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    2021
+                                </td>
+                                <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                    145,000
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
         ),  
         align: "right",
         image: "/India.png"
@@ -88,40 +90,415 @@ const ContentImageData = [
     {
         id: uuid(),
         title: "Thailand",
-        content:
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,maiores voluptatum aut maxime totam dolore molestias earum unde excepturi officia similique nesciunt quis, porro recusandae fuga illo id quas deleniti!",
+        content: (
+            <div>
+                <table className="min-w-full divide-y divide-gray-200">
+                    <caption className="text-lg font-semibold text-gray-800 text-center py-4">
+                        Annual Rice Planting Area for {`Thailand`}
+                    </caption>
+                    <thead className="bg-gray-50">
+                        <tr>
+                            <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
+                                Year
+                            </th>
+                            <th className="px-6 py-3 text-center text-sm font-medium text-gray-500 uppercase tracking-wider">
+                                Rice Planting Area (ha)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2015
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                123,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2016
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                130,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2017
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                125,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2018
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                128,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2019
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                135,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2020
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                140,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2021
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                145,000
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    ),  
         align: "left",
         image: "/thailand.png"
     },
     {
         id: uuid(),
         title: "Vietnam",
-        content:
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,maiores voluptatum aut maxime totam dolore molestias earum unde excepturi officia similique nesciunt quis, porro recusandae fuga illo id quas deleniti!",
+        content: (
+            <div>
+                <table className="min-w-full divide-y divide-gray-200">
+                    <caption className="text-lg font-semibold text-gray-800 text-center py-4">
+                        Annual Rice Planting Area for {`Vietnam`}
+                    </caption>
+                    <thead className="bg-gray-50">
+                        <tr>
+                            <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
+                                Year
+                            </th>
+                            <th className="px-6 py-3 text-center text-sm font-medium text-gray-500 uppercase tracking-wider">
+                                Rice Planting Area (ha)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2015
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                123,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2016
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                130,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2017
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                125,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2018
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                128,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2019
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                135,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2020
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                140,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2021
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                145,000
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    ),  
         align: "right",
         image: "/Vietnam.png"
     },
     {
         id: uuid(),
         title: "Laos",
-        content:
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,maiores voluptatum aut maxime totam dolore molestias earum unde excepturi officia similique nesciunt quis, porro recusandae fuga illo id quas deleniti!",
+        content: (
+            <div>
+                <table className="min-w-full divide-y divide-gray-200">
+                    <caption className="text-lg font-semibold text-gray-800 text-center py-4">
+                        Annual Rice Planting Area for {`Laos`}
+                    </caption>
+                    <thead className="bg-gray-50">
+                        <tr>
+                            <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
+                                Year
+                            </th>
+                            <th className="px-6 py-3 text-center text-sm font-medium text-gray-500 uppercase tracking-wider">
+                                Rice Planting Area (ha)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2015
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                123,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2016
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                130,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2017
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                125,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2018
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                128,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2019
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                135,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2020
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                140,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2021
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                145,000
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    ),  
         align: "left",
         image: "/Laos.png"
     },
     {
         id: uuid(),
         title: "Myanmar",
-        content:
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,maiores voluptatum aut maxime totam dolore molestias earum unde excepturi officia similique nesciunt quis, porro recusandae fuga illo id quas deleniti!",
+        content: (
+            <div>
+                <table className="min-w-full divide-y divide-gray-200">
+                    <caption className="text-lg font-semibold text-gray-800 text-center py-4">
+                        Annual Rice Planting Area for {`Myanmar`}
+                    </caption>
+                    <thead className="bg-gray-50">
+                        <tr>
+                            <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
+                                Year
+                            </th>
+                            <th className="px-6 py-3 text-center text-sm font-medium text-gray-500 uppercase tracking-wider">
+                                Rice Planting Area (ha)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2015
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                123,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2016
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                130,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2017
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                125,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2018
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                128,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2019
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                135,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2020
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                140,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2021
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                145,000
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    ),  
         align: "right",
         image: "/Myanmar.png"
     },
     {
         id: uuid(),
         title: "Cambodia",
-        content:
-            "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,maiores voluptatum aut maxime totam dolore molestias earum unde excepturi officia similique nesciunt quis, porro recusandae fuga illo id quas deleniti!",
+        content: (
+            <div>
+                <table className="min-w-full divide-y divide-gray-200">
+                    <caption className="text-lg font-semibold text-gray-800 text-center py-4">
+                        Annual Rice Planting Area for {`Cambodia`}
+                    </caption>
+                    <thead className="bg-gray-50">
+                        <tr>
+                            <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
+                                Year
+                            </th>
+                            <th className="px-6 py-3 text-center text-sm font-medium text-gray-500 uppercase tracking-wider">
+                                Rice Planting Area (ha)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2015
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                123,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2016
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                130,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2017
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                125,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2018
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                128,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2019
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                135,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2020
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                140,000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                2021
+                            </td>
+                            <td className="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+                                145,000
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    ),  
         align: "left",
         image: "/Cambodia.png"
     }
@@ -174,7 +551,11 @@ export const ContentImage = () => {
                         <h3 className="mb-6 h4 md:h3 font-semibold text-black">
                             {item.title}
                         </h3>
-                        <p>{item.content}</p>
+                        {typeof item.content === 'string' ? (
+                            <p>{item.content}</p>
+                            ) : (
+                            <div>{item.content}</div>
+                        )}
                         <ul className="process-item--list space-y-3">
                             {item.listItems?.length &&
                                 item.listItems.map((listItem) => (

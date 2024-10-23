@@ -15,9 +15,10 @@ export default function MapComponent() {
       id="map_container"
     >
       <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
       />
+
       <GeoJSONLayer />
       <GeoTIFFLayer />
       <InfoControl />
@@ -107,7 +108,7 @@ function GeoTIFFLayer() {
   const map = useMap();
   
   useEffect(() => {
-    fetch("/data/croparea_month6.tif")
+    fetch("/data/croparea_month7.tif")
       .then(response => response.arrayBuffer())
       .then(arrayBuffer => georaster(arrayBuffer))
       .then(georaster => {
@@ -171,7 +172,7 @@ function LegendControl() {
 
     legend.onAdd = function () {
       const div = L.DomUtil.create('div', 'info legend');
-      const grades = [0, 50, 100, 200, 500, 1000];
+      const grades = [0,5,10,50,100,500];
       let labels = [];
 
       div.innerHTML = '<strong>Rice Planting Area (ha)</strong><br>';
@@ -224,20 +225,11 @@ function ZoomControl() {
 }
 
 // Function to generate color based on value
-function getColor(value) {
-  // return value > 1000 ? '#00441b' :
-  //        value > 500  ? '#006d2c' :
-  //        value > 200  ? '#238b45' :
-  //        value > 100  ? '#41ab5d' :
-  //        value > 50   ? '#74c476' :
-  //        value > 10   ? '#a1d99b' :
-  //        value > 0    ? '#c7e9c0' :
-  //                       '#e5f5e0';
-  return value > 1000 ? '#b30000' :  // Dark yellow-orange
-         value > 500  ? '#d95f0e' :  // Medium yellow-orange
-         value > 200  ? '#fdae61' :  // Light yellow-orange
-         value > 100  ? '#fdd0a2' :  // Very light yellow
-         value > 50   ? '#fee5b6' :  // Pale yellow
-         value > 0    ? '#ffffb2' :  // Almost white
-                        '#ffffff';  // White
+function getColor(d) {
+  return d > 500 ? '#00441b' :
+         d > 100  ? '#006d2c' :
+         d > 50  ? '#238b45' :
+         d > 10  ? '#41ab5d' :
+         d > 5   ? '#74c476' :
+                    '#c7e9c0'; // Light green
 }
